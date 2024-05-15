@@ -5,21 +5,6 @@ import torch.nn as nn
 import torch.optim as optim
 import pandas as pd
 
-def tokenizer(text, max_length=520):
-    tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
-
-    encoding = tokenizer.encode_plus(
-        text,
-        add_special_tokens=True,
-        max_length=max_length,
-        padding='max_length',
-        truncation=True,
-        return_attention_mask=True,
-        return_tensors='pt'
-    )
-
-    return encoding
-
 def read_csv(data=None, Target=None):
         # Try with ISO-8859-1
     try:
@@ -38,8 +23,6 @@ def read_csv(data=None, Target=None):
     data['Target'] = data['Sentiment'].replace({value:key for key, value in enumerate(data['Sentiment'].unique())})
     return data
 
-
-# Define dataset class
 class TextClassificationDataset(Dataset):
     def __init__(self, texts, labels, tokenizer):
         self.texts = texts
@@ -52,8 +35,15 @@ class TextClassificationDataset(Dataset):
         values = self.texts[idx]
         label = self.labels[idx]
 
-        embedded = tokenizer(values)
-
+        embedded = self.tokenizer.encode_plus(
+                     values,
+                     add_special_tokens=True,
+                     max_length=520,
+                     padding='max_length',
+                     truncation=True,
+                     return_attention_mask=True,
+                     return_tensors='pt'
+                    )
         input_ids = embedded['input_ids'].flatten()
         masks = embedded['attention_mask'].flatten()
 
