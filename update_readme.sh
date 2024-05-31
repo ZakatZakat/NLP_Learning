@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run the Python script and capture output
-OUTPUT=$(python3 generate_data.py)
+OUTPUT=$(python3 run_model.py)
 
 # Update the README file
 echo "## Results" > README.md
