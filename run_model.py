@@ -38,5 +38,5 @@ d_out = 2
 
 
 sa_v1 = SelfAttention(3, 2)
-#print(sa_v1(inputs))
-print(111)
+print(sa_v1(inputs))
+#print(111)
