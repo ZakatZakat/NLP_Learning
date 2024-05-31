@@ -37,4 +37,4 @@ d_in = inputs.shape[1]
 d_out = 2
 
 sa_v1 = SelfAttention(3, 2)
-print(sa_v1(inputs))
+sa_v1(inputs)
