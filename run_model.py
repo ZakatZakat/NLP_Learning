@@ -36,5 +36,6 @@ torch.manual_seed(123)
 d_in = inputs.shape[1]
 d_out = 2
 
+#safsdaf
 sa_v1 = SelfAttention(3, 2)
 sa_v1(inputs)
