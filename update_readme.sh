@@ -7,6 +7,10 @@ OUTPUT=$(python3 run_model.py)
 echo "## Results" > README.md
 echo "\`\`\`" >> README.md
 echo "$OUTPUT" >> README.md
+echo "$OUTPUT" >> README.md
+echo "$OUTPUT" >> README.md
+echo "$OUTPUT" >> README.md
+echo "$OUTPUT" >> README.md
 echo "\`\`\`" >> README.md
 
 # Optionally, add more static or dynamic content to the README
