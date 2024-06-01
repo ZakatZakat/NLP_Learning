@@ -40,5 +40,5 @@ d_out = 2
 #1231232
 sa_v1 = SelfAttention(3, 2)
 
-print(sa_v1(inputs))
+print(sa_v1(inputs).shape)
 #print(111)
