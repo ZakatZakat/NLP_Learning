@@ -21,11 +21,3 @@ jobs:
 
     - name: Run script to update README
       run: ./update_readme.sh
-
-    - name: Commit and push if changes
-      run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
-        git add README.md
-        git commit -m "Update README with latest results" || exit 0  # Exit 0 if no changes
-        git push
