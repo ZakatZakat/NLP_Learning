@@ -19,6 +19,8 @@ jobs:
       with:
         python-version: '3.8'
 
+    - name: Install Python dependencies
+      run: pip install -r requirements.txt
 
     - name: Make script executable
       run: chmod +x update_readme.sh
