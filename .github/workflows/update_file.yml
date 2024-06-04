@@ -3,8 +3,7 @@ name: Update README file
 on:
   push:
     branches:
-      - main  # Set this to your default branch
-      - testing
+      - testing1
 
 jobs:
   update-readme:
