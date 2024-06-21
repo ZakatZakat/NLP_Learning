@@ -7,6 +7,11 @@ import pandas as pd
 import os
 import urllib.request
 
+from module import *
+from functions import *
+from dataloader import *
+from preprocessing import *
+
 def read_csv_default(data=None, Target=None):
         # Try with ISO-8859-1
     try:
@@ -38,3 +43,32 @@ def read_csv_text():
         with open(file_path, 'r', encoding='utf-8') as f:
             text_data = f.read()
     return text_data
+
+
+def create_train_test_sample(text_data, config, train_ratio=0.90, batch_size=2):
+    # Train/validation ratio
+    split_idx = int(train_ratio * len(text_data))
+    train_data = text_data[:split_idx]
+    val_data = text_data[split_idx:]
+
+    train_loader = create_dataloader(
+        train_data,
+        batch_size=batch_size,
+        max_length=config["context_length"],
+        stride=config["context_length"],
+        drop_last=True,
+        shuffle=True,
+        num_workers=0
+    )
+
+    val_loader = create_dataloader(
+        val_data,
+        batch_size=batch_size,
+        max_length=config["context_length"],
+        stride=config["context_length"],
+        drop_last=False,
+        shuffle=False,
+        num_workers=0
+    )
+
+    return train_loader, val_loader
