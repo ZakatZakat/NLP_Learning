@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Run the Python script and capture output
-OUTPUT=$(python3 generate_data.py)
+# Convert the Jupyter Notebook to a Python script and run it
+jupyter nbconvert --to script /Users/askarembulatov/Github_projects/NLP_task/NLP/Notebooks/classification_problem/notebook.ipynb --output generate_data_script
+
+# Run the converted script and capture the output
+OUTPUT=$(python3 generate_data_script.py)
 
 # Update the README file
 echo "## Results" > README.md
