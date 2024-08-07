@@ -143,5 +143,5 @@ for epoch in range(2):
         correct += (predicted == labels).sum().item()
 
     accuracy = correct / total
-    print(accuracy)
+    print(f'epoch: {epoch}, accuracy: {accuracy})
 
