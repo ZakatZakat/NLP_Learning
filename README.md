@@ -2,4 +2,4 @@
 ```
 
 ```
-More details about the project.
+More details about the project. UPD
